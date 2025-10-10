@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM RnD</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        chat-window {
+            display: block;
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+            margin-bottom: 10px;
+            padding: 5px;
+            overflow-y: scroll;
+        }
+    </style>
+
+    <script type="module">
+        const DEBUG = false;
+
+        function log(msg) {
+            if (DEBUG)
+                console.log(msg);
+        }
+
+        function getResponse(message) {
+            return "Oh that's interesting!";
+        }
+
+        function showResponse(response) {
+            addToChatWindow(response, 'Bot');
+        }
+
+        function processMessage(message) {
+            let response = getResponse(message);
+            showResponse(response);
+        }
+
+        function send() {
+            let messageBox = document.getElementById('messageBox');
+            let message = messageBox.value;
+
+            let chatWindow = document.getElementById('chatWindow');
+
+            messageBox.value = '';
+            messageBox.focus();
+
+            addToChatWindow(message, 'User');
+
+            processMessage(message);
+        }
+        
+        function addToChatWindow(message, speaker) {
+            let chatWindow = document.getElementById('chatWindow');
+            chatWindow.innerHTML += `<p>${speaker}: ${message}</p>`;
+        }
+
+        function init() {
+            log('Loading app!');
+
+            document.getElementById('sendBtn').addEventListener('click', function () {
+                send();
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</head>
+
+<body>
+
+    <chat-window id="chatWindow">
+        
+    </chat-window>
+
+    <textarea id="messageBox" placeholder="Type a message" rows="2" cols="60"></textarea>
+    <button id="sendBtn" type="button">Send</button>
+
+</body>
+
+</html>
