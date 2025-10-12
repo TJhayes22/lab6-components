@@ -9,8 +9,94 @@
 </head>
 
 <body>
-    <textarea id="messageBox" placeholder="Type a message" rows="2" cols="60"></textarea>
-    <button id="sendBtn" type="button">Send</button>
+    <header id="chat-header">
+        <h1>Chat Assistant</h1>
+        <p>Prototype: Pure HTML and CSS</p>
+    </header>
+
+    <main>
+        <section class="message-history">
+            <div class="message bot-message">
+                <div class="message-header">
+                    <bot-avatar>&#129302;</bot-avatar>
+                    <span class="timestamp">10:00 AM</span>
+                </div>
+                <message-content>
+                    <p>Hello! I'm here to chat with you. How can I help you today?</p>
+                </message-content>
+            </div>
+
+            <div class="message user-message">
+                <div class="message-header">
+                    <user-avatar>&#128100;</user-avatar>
+                    <span class="timestamp">10:00 AM</span>
+                </div>
+                <message-content>
+                    <p>Hi there! What can you do?</p>
+                </message-content>
+            </div>
+
+            <div class="message bot-message">
+                <div class="message-header">
+                    <bot-avatar>&#129302;</bot-avatar>
+                    <span class="timestamp">10:00 AM</span>
+                </div>
+                <message-content>
+                    <p>I can chat with you about various topics. Try asking me a question or just say hello!</p>
+                </message-content>
+            </div>
+
+            <div class="message user-message">
+                <div class="message-header">
+                    <user-avatar>&#128100;</user-avatar>
+                    <span class="timestamp">10:01 AM</span>
+                </div>
+                <message-content>
+                    <p>How does this work?</p>
+                </message-content>
+            </div>
+
+            <div class="message bot-message">
+                <div class="message-header">
+                    <bot-avatar>&#129302;</bot-avatar>
+                    <span class="timestamp">10:01 AM</span>
+                </div>
+                <message-content>
+                    <p>I read what you type and respond based on my programming.</p>
+                </message-content>
+            </div>
+
+            <div class="message user-message">
+                <div class="message-header">
+                    <user-avatar>&#128100;</user-avatar>
+                    <span class="timestamp">10:02 AM</span>
+                </div>
+                <message-content>
+                    <p>Cool! Thanks for the info.</p>
+                </message-content>
+            </div>
+
+            <div class="message bot-message">
+                <div class="message-header">
+                    <bot-avatar>&#129302;</bot-avatar>
+                    <span class="timestamp">10:02 AM</span>
+                </div>
+                <message-content>
+                    <p>You're welcome!</p>
+                </message-content>
+            </div>
+        </section>
+
+        <form id="chat-input-area">
+            <input type="text" placeholder="Type your message...">
+            <button type="submit">Send</button>
+        </form>
+    </main>
+
+    <chat-footer>
+        <p>&#8505; This is a static HTML/CSS demonstration. The input is disabled. See other approaches for interactive
+            versions.</p>
+    </chat-footer>
 </body>
 
 </html>
