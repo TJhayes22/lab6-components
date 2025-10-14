@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Component PE Approach</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script type="module" src="./chat-component.js"></script>
+</head>
+
+<body>
+    <simple-chat>
+        <header id="chat-header">
+            <h1>Chat Assistant</h1>
+            <p>Prototype: Progressive Enhancement Example</p>
+        </header>
+
+        <main>
+            <section id="chat-window" class="message-history">
+                <div class="message bot-message">
+                    <div class="message-header">
+                        <span class="avatar">🤖</span>
+                        <span class="timestamp">10:00 AM</span>
+                    </div>
+                    <div class="message-content">
+                        <p>Hello! How can I help you?</p>
+                    </div>
+                </div>
+            </section>
+            <form id="chat-input-area">
+                <input id="message-box" type="text" placeholder="Type your message...">
+                <button id="send-button" type="button">Send</button>
+            </form>
+        </main>
+
+        <chat-footer>
+            <p>&#8505; This is a static fallback.</p>
+        </chat-footer>
+    </simple-chat>
+</body>
+</html>
