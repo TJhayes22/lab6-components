@@ -26,25 +26,18 @@ class ChatInterface extends HTMLElement {
                     --margin-base: 3rem;
 
                     display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 100vw;
-                    width: 100vh;
+                    height: 100%;
+                    width: 100%;
                     background-color: var(--page-background);
                     font-family: var(--font-family);
                 }
 
-                html, body {
-                    margin: 0;
-                    padding: 0;
-                }
-
-                .wrapper {
+                container {
                     display: flex;
                     flex-direction: column;
-                    width: 100vw;
-                    height: 100vh;
-                    overflow: hidden;
+                    width: 100%;
+                    min-height: 100vh;
+                    max-height: 90vh;
                 }
 
                 header {
@@ -195,12 +188,11 @@ class ChatInterface extends HTMLElement {
 
                     margin-left: var(--margin-base);
                     margin-right: var(--margin-base);
-                    flex-shrink: 0;
                     margin-bottom: var(--margin-base);
                 }
             </style>
 
-            <div class="wrapper">
+            <container>
                 <header id="chat-header">
                     <h1>Chat Assistant</h1>
                     <p>Prototype: Web Component (PE)</p>
@@ -216,10 +208,11 @@ class ChatInterface extends HTMLElement {
                 </main>
 
                 <chat-footer>
-                    <p>&#8505; This is a Web Component (PE)</p>
+                    <p>&#8505; This is a fully encapsulated web component using Shadow DOM.</p>
                 </chat-footer>
-            </div>
+            </container>
         `;
+        document.body.style.margin = '0'; // Remove default margin
         this.setupEventListeners();
     }
 
