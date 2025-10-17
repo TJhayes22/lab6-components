@@ -13,7 +13,7 @@ The purpose of this lab is to practice **DOM manipulation**, **custom elements**
 ---
 
 ## GitHub Pages
-**Live Demo:** [Your GitHub Pages Link Here](#)  
+**Live Demo:** [Link](https://tjhayes22.github.io/lab6-components/)  
 
 ---
 
