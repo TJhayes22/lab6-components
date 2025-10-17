@@ -151,4 +151,5 @@ hr {
 
 footer p{
     color: var(--grey);
+    text-align: center;
 }
