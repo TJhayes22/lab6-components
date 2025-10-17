@@ -149,7 +149,10 @@ hr {
     margin: 1.5rem auto; 
 }
 
+footer {
+    text-align: center;
+}
+
 footer p{
     color: var(--grey);
-    text-align: center;
 }
