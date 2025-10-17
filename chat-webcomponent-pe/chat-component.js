@@ -1,6 +1,14 @@
 import { getBotResponse } from './eliza.js';
 
+/**
+ * Custom Web Component for a simple chat interface.
+ * @extends HTMLElement
+ */
 class SimpleChat extends HTMLElement {
+    /**
+     * Called when the element is added to the DOM.
+     * Sets up the chat HTML structure and event listeners.
+     */
     connectedCallback() {
         this.innerHTML = `
             <header id="chat-header">
@@ -40,6 +48,12 @@ class SimpleChat extends HTMLElement {
         });
     }
 
+    /**
+     * Sends the user's message.
+     * - Adds the user message to the chat window
+     * - Clears the input box
+     * - Gets a response from the bot and adds it to the chat
+     */
     sendMessage() {
         const message = this.messageBox.value.trim();
         if (message === '') return;
@@ -52,6 +66,11 @@ class SimpleChat extends HTMLElement {
         this.addMessage('bot', response);
     }
 
+    /**
+     * Adds a message to the chat window.
+     * @param {'user' | 'bot'} speaker - Who sent the message
+     * @param {string} text - The message text to display
+     */
     addMessage(speaker, text) {
         const timeStamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         const isUser = speaker === 'user';
@@ -73,4 +92,6 @@ class SimpleChat extends HTMLElement {
         this.chatWindow.scrollTop = this.chatWindow.scrollHeight; // Scroll to bottom
     }
 }
+
+// Define the custom element
 customElements.define('simple-chat', SimpleChat);

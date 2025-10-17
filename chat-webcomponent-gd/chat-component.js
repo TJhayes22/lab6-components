@@ -1,11 +1,22 @@
 import { getBotResponse } from './eliza.js';
 
+/**
+ * Custom Web Component for a fully encapsulated chat interface using Shadow DOM.
+ * @extends HTMLElement
+ */
 class ChatInterface extends HTMLElement {
+    /**
+     * Constructor: attaches a Shadow DOM to encapsulate styles and markup.
+     */
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
     }
 
+    /**
+     * Called when the element is added to the DOM.
+     * Sets up the Shadow DOM structure, styles, and initial event listeners.
+     */
     connectedCallback() {
         this.shadowRoot.innerHTML = `
             <style>
@@ -216,6 +227,9 @@ class ChatInterface extends HTMLElement {
         this.setupEventListeners();
     }
 
+    /**
+     * Sets up event listeners for sending messages via button click or Enter key.
+     */
     setupEventListeners() {
         const sendButton = this.shadowRoot.getElementById('send-button');
         this.messageBox = this.shadowRoot.getElementById('message-box');
@@ -236,6 +250,12 @@ class ChatInterface extends HTMLElement {
 
     }
 
+    /**
+     * Sends the user's message.
+     * - Adds the message to the chat window
+     * - Clears and focuses the input box
+     * - Gets a response from the bot and displays it
+     */
     sendMessage() {
         const message = this.messageBox.value.trim();
         if (message === '') return;
@@ -248,6 +268,11 @@ class ChatInterface extends HTMLElement {
         this.addMessage('bot', response);
     }
 
+    /**
+     * Adds a message to the chat window.
+     * @param {'user' | 'bot'} speaker - Indicates if the message is from the user or bot
+     * @param {string} text - The message text to display
+     */
     addMessage(speaker, text) {
         const timeStamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         const isUser = speaker === 'user';
@@ -270,4 +295,5 @@ class ChatInterface extends HTMLElement {
     }
 }
 
+// Define the custom element
 customElements.define('chat-interface', ChatInterface);
